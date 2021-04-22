@@ -8,6 +8,10 @@ const Card = () => {
     const [active, setActive] = useState(true)
 
 
+
+
+
+    
     const goTo = () => {
         console.log(333333333)
         setActive(false)
