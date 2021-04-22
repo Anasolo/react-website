@@ -13,7 +13,7 @@ const Card = () => {
 
     
     const goTo = () => {
-        console.log(333333333)
+        console.log("hiii")
         setActive(false)
       }
 
