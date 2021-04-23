@@ -1,51 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import NavBar from "./components/Navbar"
-import SideBar from './components/Sidebar'
-import Article from "./components/HomePage/Article"
-import Recipe from './components/HomePage/Recipe'
-import Card from './components/HomePage/card'
-
+import React from "react";
+import NavBar from "./components/Navbar";
+import SideBar from "./components/Sidebar";
+import Home from "./components/HomePage/Home";
+import About from "./components/About";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
-
-  const [active, setActive] = useState(true)
-
-
-  useEffect(() => {
-    // This effect uses the `value` variable,
-    // so it "depends on" `value`.
-    console.log('00000000')
-  }, [])
-
-
-  const goTo = () => {
-    console.log(333333333)
-    setActive(false)
-  }
   return (
-
     <>
-      <NavBar />
-      <SideBar />
-      <div style={{display:"flex",flexWrap:'wrap', marginLeft:'200px'}}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-
-
+      <Router>
+        <NavBar />
+        <SideBar />
+        <Switch>
+          <Route path="/Home">
+            <Home />
+          </Route>
+          <Route path="/About">
+            <About />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
