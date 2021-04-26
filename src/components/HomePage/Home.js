@@ -13,16 +13,16 @@ const Home = () => {
     {
       img:
         "https://media3.s-nbcnews.com/j/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p_67dfb6820f7d3898b5486975903c2e51.fit-1240w.jpg",
-      name: "avto",
-      text: "click for avto",
-      recipe: "this is a recipe2222222222222222222222",
+      name: "Latte",
+      text: "click for recipe",
+      recipe: "this is a recipe",
     },
     {
       img:
         "https://post.healthline.com/wp-content/uploads/2020/08/espresso-ground-coffee-beans-thumb-1-732x549.jpg",
-      name: "ana",
-      text: "click for ana",
-      recipe: "this is a recipe3333333333333333333333",
+      name: "Americano",
+      text: "click for recipe",
+      recipe: "this is a recipe",
     },
   ]);
   return (

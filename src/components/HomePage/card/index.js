@@ -10,9 +10,9 @@ const Card = ({ item }) => {
   };
 
   const style = { marginRight: "25px" };
-  useEffect(() => {
-    console.log("hi", item);
-  }, []);
+
+  useEffect(() => {}, []);
+
   return (
     <div style={style}>
       <div>
