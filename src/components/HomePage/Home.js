@@ -1,37 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./card";
+import axios from "axios";
+import { Button, Form, Row, Col } from "react-bootstrap";
 
 const Home = () => {
-  const [data, setData] = useState([
-    {
-      img:
-        "https://image.freepik.com/free-photo/cappuccino-coffee-glass-with-spoon-wooden-table_23-2147908372.jpg",
-      name: "Capuccino",
-      text: "click for recipe",
-      recipe: "this is a recipe",
-    },
-    {
-      img:
-        "https://media3.s-nbcnews.com/j/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p_67dfb6820f7d3898b5486975903c2e51.fit-1240w.jpg",
-      name: "Latte",
-      text: "click for recipe",
-      recipe: "this is a recipe",
-    },
-    {
-      img:
-        "https://post.healthline.com/wp-content/uploads/2020/08/espresso-ground-coffee-beans-thumb-1-732x549.jpg",
-      name: "Americano",
-      text: "click for recipe",
-      recipe: "this is a recipe",
-    },
-  ]);
+  const [data, setData] = useState([]);
+  const [buttonActive, setbuttonActive] = useState(true);
+  const [buttonLoader, setButtonLoader] = useState(false);
+
+  // useEffect example
+
+  // useEffect(async () => {
+  //   console.log("sensei");
+  //   var data = await axios.get(
+  //     "https://jsonplaceholder.typicode.com/photos?_limit=20"
+  //   );
+  //   console.log("hi", data.data);
+  //   setData(data.data);
+  // }, []);
+
+  const getData = async (name) => {
+    setButtonLoader(true);
+    var data = await axios.get("https://jsonplaceholder.typicode.com/photos");
+    console.log("hi", data.data);
+    setData(data.data);
+    setbuttonActive(false);
+    setButtonLoader(false);
+  };
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "200px" }}>
-      {data.map((item) => (
-        <div>
-          <Card item={item} />
-        </div>
-      ))}
+    <div>
+      <div>
+        <Row style={{ marginLeft: "200px" }}>
+          <Col md={3}>
+            <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Control as="select">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+              </Form.Control>
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Button
+              style={{ marginLeft: "200px" }}
+              onClick={() => getData()}
+              variant="info"
+              disabled={buttonLoader}
+            >
+              {buttonLoader ? "Loading..." : "Get Data"}
+            </Button>
+          </Col>
+        </Row>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "200px" }}>
+        {data.map((item) => (
+          <div>
+            <Card item={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

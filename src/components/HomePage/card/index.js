@@ -18,13 +18,13 @@ const Card = ({ item }) => {
       <div>
         {active ? (
           <Article
-            img={item.img}
-            name={item.name}
+            img={item.url}
+            name={item.title.substring(0, 10)}
             text={item.text}
             onClick={() => goTo()}
           />
         ) : (
-          <Recipe setActive={setActive} name={item.name} recipe={item.recipe} />
+          <Recipe setActive={setActive} recipe={item.title} />
         )}
       </div>
     </div>

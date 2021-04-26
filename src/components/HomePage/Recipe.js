@@ -13,7 +13,7 @@ const Recipe = ({ name, recipe, setActive }) => {
         <li>2 tablespoons finely ground dark roast coffee</li>
         <li>4 ounces water</li>
       </ul>
-      <h3>{recipe}</h3>
+      <p>{recipe}</p>
       <ul>
         <li>4 ounces milk</li>
       </ul>
