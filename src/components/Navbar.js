@@ -24,15 +24,13 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Today's Special</Nav.Link>
+            <Nav.Link>Today's Special</Nav.Link>
             <NavDropdown title="You Need" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Desert</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Coffee</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Sandwitch</NavDropdown.Item>
+              <NavDropdown.Item>Desert</NavDropdown.Item>
+              <NavDropdown.Item>Coffee</NavDropdown.Item>
+              <NavDropdown.Item>Sandwitch</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Ask for more
-              </NavDropdown.Item>
+              <NavDropdown.Item>Ask for more</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>

@@ -18,6 +18,9 @@ function App() {
           <Route path="/About">
             <About />
           </Route>
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
       </Router>
     </>
