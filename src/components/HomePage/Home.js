@@ -7,6 +7,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [buttonActive, setbuttonActive] = useState(true);
   const [buttonLoader, setButtonLoader] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   // useEffect example
 
@@ -20,12 +21,19 @@ const Home = () => {
   // }, []);
 
   const getData = async (name) => {
+    console.log("ana", quantity);
     setButtonLoader(true);
-    var data = await axios.get("https://jsonplaceholder.typicode.com/photos");
+    var data = await axios.get(
+      `https://jsonplaceholder.typicode.com/photos?_limit=${quantity}`
+    );
     console.log("hi", data.data);
     setData(data.data);
     setbuttonActive(false);
     setButtonLoader(false);
+  };
+  const setValue = (e) => {
+    console.log("avto", e);
+    setQuantity(e);
   };
   return (
     <div>
@@ -33,7 +41,11 @@ const Home = () => {
         <Row style={{ marginLeft: "200px" }}>
           <Col md={3}>
             <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Control as="select">
+              <Form.Control
+                as="select"
+                onChange={(e) => setValue(e.currentTarget.value)}
+              >
+                <option>Select Quantity</option>
                 <option>5</option>
                 <option>10</option>
                 <option>20</option>
